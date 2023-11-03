@@ -7,7 +7,7 @@ import {
 } from '@expo-google-fonts/roboto-condensed';
 import { Inter_400Regular } from '@expo-google-fonts/inter';
 import { JuliusSansOne_400Regular } from '@expo-google-fonts/julius-sans-one';
-import RoutesApp from './src/routes/routes';
+import RoutesApp from './src/routes/';
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
