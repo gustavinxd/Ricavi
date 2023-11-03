@@ -1,4 +1,4 @@
-# MeatGolden
+# Ricavi
 
 <div> 
   <img align='center' style='width: 300px' src='assets/img/Logo.svg'/>
@@ -18,11 +18,10 @@
 
 ## O que é o Projeto?
 
-MeatGolden é uma calculadora de churrasco que permite calcular o custo e a quantidade de alimentos e recursos necessários para fazer um churrasco sem gastar muito. Esta aplicação foi desenvolvida pela equipe PirateDevs como uma ferramenta útil para entusiastas de churrasco e churrasqueiros de todos os níveis.
+Ricavi é um app de onde possui listas de receitas culinárias com autenticação obrigatória. Esta aplicação foi desenvolvida pela equipe PirateDevs.
 
 ## Objetivo
 
-O objetivo principal do MeatGolden é ajudar os usuários a planejar e calcular os custos de um churrasco, incluindo a quantidade de carne, carvão, bebidas e outros itens necessários. Isso permite que os usuários evitem gastos excessivos e desperdícios, tornando o processo de churrasco mais eficiente e econômico.
 
 ## Tecnologias
 
@@ -30,7 +29,6 @@ O objetivo principal do MeatGolden é ajudar os usuários a planejar e calcular 
   <img src='https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black'/>  
   <img src='https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'/>  
   <img src='https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'/>  
-  <img src='https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white'/>  
   <img src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/>  
   <img src='https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white'/>  
   <img src='https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white'/>  
@@ -65,7 +63,7 @@ Para clonar o repositório do MeatGolden, você pode seguir os passos abaixo:
 
 1. No terminal, clone o projeto usando este comando:
 ```bash
-git clone https://github.com/gustavinxd/MeatGolden.git
+git clone https://github.com/gustavinxd/Ricavi.git
 ```
 2. Depois de clonado, acesse o diretório do projeto usando o comando a seguir
 ```bash
