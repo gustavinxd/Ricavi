@@ -5,7 +5,7 @@ import {
   RobotoCondensed_400Regular,
   RobotoCondensed_700Bold
 } from '@expo-google-fonts/roboto-condensed';
-import { Inter_400Regular } from '@expo-google-fonts/inter';
+import { Inter_400Regular, Inter_600SemiBold } from '@expo-google-fonts/inter';
 import { JuliusSansOne_400Regular } from '@expo-google-fonts/julius-sans-one';
 import RoutesApp from './src/routes/';
 
@@ -15,7 +15,8 @@ export default function App() {
     RobotoCondensed_400Regular,
     RobotoCondensed_700Bold,
     JuliusSansOne_400Regular,
-    Inter_400Regular
+    Inter_400Regular,
+    Inter_600SemiBold
   });
 
   if (!fontsLoaded && !fontError) {

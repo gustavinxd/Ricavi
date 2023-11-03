@@ -9,6 +9,7 @@ import {
 import colors from '../../colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useThemeContext } from '../../contexts/theme';
+import SubmitButton from './../../components/Buttons/SubmitButton/index';
 
 export default function SignInPage({ navigation }) {
   const { theme } = useThemeContext();
@@ -18,7 +19,7 @@ export default function SignInPage({ navigation }) {
     <SafeAreaView style={[styles.container, { backgroundColor: themeColor }]}>
       <View style={styles.backgroundPage} />
       <View style={styles.contentSection}>
-        <Image source={require('../../../assets/img/logoSVG.png')} style={{}} />
+        <Image source={require('../../../assets/img/logoSVG.png')} style={{top: '-5%'}} />
 
         <View style={styles.formCard}>
           <Text style={styles.formTitle}>Login</Text>
@@ -28,6 +29,8 @@ export default function SignInPage({ navigation }) {
             <TextInput style={[styles.input, {borderBottomLeftRadius: 8, borderBottomRightRadius: 8}]} placeholder='Senha' placeholderTextColor={colors.grey} />
           </View>
         </View>
+
+        <SubmitButton btnTitle='Entrar' btnColor='grey' style={{position: 'absolute', bottom: '10%'}}/>
       </View>
     </SafeAreaView>
   );
@@ -44,13 +47,14 @@ const styles = StyleSheet.create({
     height: '65%',
     borderBottomLeftRadius: 999,
     borderBottomRightRadius: 999,
+    position: 'absolute',
     backgroundColor: colors.primary
   },
   contentSection: {
     width: '100%',
-    position: 'absolute',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    position: 'relative'
   },
   formCard: {
     width: '85%',
@@ -61,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     borderRadius: 8,
-    top: -130
+    top: '-25%'
   },
   formTitle: {
     fontFamily: 'JuliusSansOne_400Regular',

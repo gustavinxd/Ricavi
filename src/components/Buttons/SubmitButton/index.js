@@ -9,11 +9,11 @@ export default function SubmitButton({
   style
 }) {
   const { theme } = useThemeContext();
-  const themeColor = theme === 'light' ? colors.primary : colors.light;
+  const themeColor = theme === 'light' ? colors.grey : colors.light;
   const themeColorText = theme === 'light' ? colors.light : colors.dark;
 
   const chooseColor =
-    btnColor === 'red'
+    btnColor === 'grey'
       ?  themeColor
       : colors.light ;
       
@@ -25,7 +25,7 @@ export default function SubmitButton({
       <Text
         style={[
           styles.btnTitle,
-          btnColor === 'red'
+          btnColor === 'grey'
             ? { color: themeColorText }
             : { color: colors.primary }
         ]}
@@ -40,15 +40,12 @@ const styles = StyleSheet.create({
   btnContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: '45%',
-    marginBottom: 30,
+    width: '40%',
     padding: 10,
     borderRadius: 8,
-    borderWidth: 2,
-    borderColor: colors.lightGrey
   },
   btnTitle: {
-    fontFamily: 'InriaSans_700Bold',
+    fontFamily: 'Inter_600SemiBold',
     fontSize: 16,
   }
 });
