@@ -19,7 +19,7 @@ export default function SignInPage({ navigation }) {
     <SafeAreaView style={[styles.container, { backgroundColor: themeColor }]}>
       <View style={styles.backgroundPage} />
       <View style={styles.contentSection}>
-        <Image source={require('../../../assets/img/logoSVG.png')} style={{top: '-5%'}} />
+        <Image source={require('../../../assets/img/logoRICAVI.png')} style={{top: '-5%'}} />
 
         <View style={styles.formCard}>
           <Text style={styles.formTitle}>Login</Text>
@@ -30,7 +30,7 @@ export default function SignInPage({ navigation }) {
           </View>
         </View>
 
-        <SubmitButton btnTitle='Entrar' btnColor='grey' style={{position: 'absolute', bottom: '10%'}}/>
+        <SubmitButton onPress={() => navigation.navigate('SignUp')} btnTitle='Entrar' btnColor='grey' style={{position: 'absolute', bottom: '5%', elevation: 5}}/>
       </View>
     </SafeAreaView>
   );
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     borderRadius: 8,
-    top: '-25%'
+    top: '-20%'
   },
   formTitle: {
     fontFamily: 'JuliusSansOne_400Regular',
