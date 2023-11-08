@@ -30,7 +30,7 @@ export default function SignInPage({ navigation }) {
           </View>
         </View>
 
-        <SubmitButton onPress={() => navigation.navigate('SignUp')} btnTitle='Entrar' btnColor='grey' style={{position: 'absolute', bottom: '5%', elevation: 5}}/>
+        <SubmitButton onPress={() => navigation.navigate('Receitas')} btnTitle='Entrar' btnColor='grey' style={{position: 'absolute', bottom: '5%', elevation: 5}}/>
       </View>
     </SafeAreaView>
   );
