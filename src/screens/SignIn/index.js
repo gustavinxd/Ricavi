@@ -4,7 +4,6 @@ import {
   View,
   ScrollView,
   Text,
-  TextInput,
   Image
 } from 'react-native';
 import colors from '../../colors';
@@ -14,7 +13,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useThemeContext } from '../../contexts/theme';
 import SubmitButton from './../../components/Buttons/SubmitButton';
 import ButtonIcon from './../../components/Buttons/ButtonIcon/index';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import InputController from './../../components/InputController/index';
+import HelperText from './../../components/HelperText/index';
+import LinkPage from './../../components/LinkPage/index';
+import { useState } from 'react';
 
 const schema = z.object({
   email: z
@@ -45,6 +47,12 @@ export default function SignInPage({ navigation }) {
   const { theme } = useThemeContext();
   const themeColor = theme === 'light' ? colors.light : colors.black;
 
+  const [visibility, setVisibility] = useState(true);
+
+  const togglePasswordVisibility = () => {
+    setVisibility((prevState) => !prevState);
+  };
+  
   const submitForm = async (data) => {
     console.log(data);
   };
@@ -63,17 +71,9 @@ export default function SignInPage({ navigation }) {
             <Text style={styles.formTitle}>Login</Text>
 
             <View style={styles.inputSection}>
-
               {/* Mensagem de erro caso o campo não esteja no formato correta para submit */}
               {errors.email && (
-                <Text
-                  style={{
-                    color: colors.error,
-                    fontFamily: 'Inter_400Regular'
-                  }}
-                >
-                  {errors.email?.message}
-                </Text>
+                <HelperText helperText={errors.email?.message} />
               )}
 
               {/* Campo de usuário */}
@@ -81,16 +81,13 @@ export default function SignInPage({ navigation }) {
                 control={control}
                 rules={{ required: true }}
                 render={({ field: { onChange, onBlur, value } }) => (
-                  <TextInput
-                    style={[
-                      styles.input,
-                      { borderTopLeftRadius: 8, borderTopRightRadius: 8 }
-                    ]}
+                  <InputController
+                    style={{ borderTopLeftRadius: 8, borderTopRightRadius: 8 }}
+                    error={errors.email}
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
                     placeholder="E-mail"
-                    placeholderTextColor={colors.grey}
                   />
                 )}
                 name="email"
@@ -101,17 +98,20 @@ export default function SignInPage({ navigation }) {
                 control={control}
                 rules={{ required: true }}
                 render={({ field: { onChange, onBlur, value } }) => (
-                  <TextInput
-                    style={[
-                      styles.input,
-                      { borderBottomLeftRadius: 8, borderBottomRightRadius: 8 }
-                    ]}
-                    secureTextEntry
+                  <InputController
+                    style={{
+                      borderBottomLeftRadius: 8,
+                      borderBottomRightRadius: 8
+                    }}
+                    error={errors.password}
+                    secureTextEntry={visibility}
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
                     placeholder="Senha"
-                    placeholderTextColor={colors.grey}
+                    hasAction
+                    iconAction={visibility ? 'eye' : 'eye-off'}
+                    onPressAction={togglePasswordVisibility}
                   />
                 )}
                 name="password"
@@ -119,15 +119,7 @@ export default function SignInPage({ navigation }) {
 
               {/* Mensagem de erro caso o campo não esteja no formato correta para submit */}
               {errors.password && (
-                <Text
-                  style={{
-                    color: colors.error,
-                    fontFamily: 'Inter_400Regular',
-                    textAlign: 'left'
-                  }}
-                >
-                  {errors.password?.message}
-                </Text>
+                <HelperText helperText={errors.password?.message} />
               )}
             </View>
           </View>
@@ -136,20 +128,21 @@ export default function SignInPage({ navigation }) {
             onPress={handleSubmit(submitForm)}
             btnTitle="Entrar"
             btnColor="grey"
-            style={{ position: 'absolute', bottom: '12%', elevation: 5 }}
+            style={styles.button}
           />
 
-          <View style={{position: 'absolute', flexDirection: 'row', bottom: '7%', gap: 1}}>
-            <Text>Não possui cadastro?</Text>
-            <TouchableOpacity>
-              <Text>Cadastra-se aqui.</Text>
-            </TouchableOpacity>
+          <View style={styles.link}>
+            <LinkPage
+              descLink="Não possui cadastro?"
+              textLink="Cadastra-se aqui."
+              onPress={() => navigation.navigate('SignUp')}
+            />
           </View>
 
-          <View style={{flexDirection:'row', gap: 10, position: 'absolute', bottom: '2%'}}>
-            <ButtonIcon icon='github'/>
-            <ButtonIcon icon='google'/>
-            <ButtonIcon icon='facebook'/>
+          <View style={styles.authButtons}>
+            <ButtonIcon icon="github" size={30} colorTheme={colors.black} />
+            <ButtonIcon icon="google" size={30} colorTheme={colors.black} />
+            <ButtonIcon icon="facebook" size={30} colorTheme={colors.black} />
           </View>
         </View>
       </ScrollView>
@@ -187,7 +180,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     borderRadius: 8,
-    top: '-22%'
+    top: '-22%',
+    elevation: 5,
+    zIndex: 10
   },
   formTitle: {
     fontFamily: 'JuliusSansOne_400Regular',
@@ -200,13 +195,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 3
   },
-  input: {
-    width: '100%',
-    backgroundColor: colors.light,
-    padding: 10,
-    paddingLeft: 20,
-    color: colors.black,
-    fontFamily: 'Inter_400Regular',
-    fontSize: 15
+  button: {
+    position: 'absolute',
+    bottom: '12%',
+    elevation: 5
+  },
+  link: {
+    position: 'absolute',
+    flexDirection: 'row',
+    bottom: '7%'
+  },
+  authButtons: {
+    flexDirection: 'row',
+    gap: 10,
+    position: 'absolute',
+    bottom: '2%'
   }
 });
