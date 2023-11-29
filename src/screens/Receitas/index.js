@@ -1,77 +1,112 @@
-import React from 'react';
 import {
-  Text,
   View,
-  StyleSheet,
+  Text,
   ScrollView,
-  TouchableOpacity,
-  Image,
-  Linking
+  SafeAreaView,
+  StyleSheet,
+  Image
 } from 'react-native';
-import { Card } from 'react-native-paper';
-import colors from '../../colors/index';
-import React, { useEffect, useState } from 'react'
-  
-export default function Receitas({ navigation }) {
-  const APP_ID = '1d1560ee';
-  const APP_KEY = '3e3366df0ee22599320ad1483327e49f';
-  const [recipes, setRecipes] = useState([]);
-  const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("chicken");
-  useEffect(() => {
-    getRecipes();
-  }, [query])
-  const getRecipes = async () => {
-    const response = await fetch
-          (`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
-    const data = await response.json();
-    setRecipes(data.hits);
-    // console.log(data);
-  
-  };
-  const updateSearch = e => {
-    setSearch(e.target.value);
-  };
-  const getSearch = e => {
-    e.preventDefault();
-    setQuery(search);
-    setSearch("");
-  }
-  
+import React from 'react';
+import { AntDesign } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import colors from '../../colors';
+import { TextInput } from 'react-native-gesture-handler';
+import Categorias from '../../components/Categorias';
+
+export default function Receitas() {
   return (
     <View style={styles.container}>
-      <ScrollView>
-        {/* <Text style={styles.title}>Receitas</Text> */}
+      <StatusBar style="dark" />
 
-      </ScrollView>
+      <SafeAreaView>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingBottom: 50
+          }}
+          style={styles.scroll}
+        >
+          <View style={styles.viewContainer}>
+            <View>
+              <Text style={styles.title}>Receitas</Text>
+            </View>
+            <Text style={styles.subTitle}>
+              Seu companheiro culinário
+              <Text style={styles.subDiff}> perfeito</Text>!
+            </Text>
+          </View>
+          {/* Search Bar */}
+          <View style={styles.viewInput}>
+            <View style = {styles.viewSubInput}>
+              <AntDesign name="search1" size={hp(3)}
+              style={{ color:"gray"}}
+              />
+            </View>
+            <TextInput
+              placeholder='Busque sua comida preferida'
+              style={styles.input}
+            />
+          </View>
+
+          {/* Categorias */}
+          <View>
+            <Categorias />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
+}
 
-//   return (
-//     <div className="App">
-//       <form className="search-form" onSubmit={getSearch}  >
-//         <input className="search-bar" type="text" value={search}
-//              onChange={updateSearch} />
-//         <button className="search-button" type="submit" >
-//              Search
-//         </button>
-//       </form>
-//       <div className="recipes">
-//         {recipes.map(recipe => (
-//           <Recipe
-//             key={recipe.recipe.label}
-//             title={recipe.recipe.label}
-//             calories={recipe.recipe.calories}
-//             image={recipe.recipe.image}
-//             ingredients={recipe.recipe.ingredients}
-//           />
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 5,
+  },
+  scroll: {
+    paddingTop: 14,
+    marginVertical: 6
+  },
+  viewContainer: {
+    marginRight: 4,
+    marginVertical: 1,
+    marginBottom: 2,
+    padding: 5,
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+  title: {
+    fontSize: hp(3.5),
+    color: '#000',
+    fontWeight: 'bold'
+  },
+  subTitle: {
+    fontSize: hp(3),
+    color: '#000',
+    fontWeight: '300'
+  },
+  subDiff: {
+    color: colors.primary
+  },
+  viewInput: {
+    marginLeft: 4,
+    marginRight: 5,
+    alignItems: 'center',
+    borderRadius: 10,
+    borderColor: '#000',
+    borderWidth: 1,
+    marginTop: 10,
+    flexDirection: 'row',
+    padding: 8,
+  },
+  viewSubInput: {
+    backgroundColor: colors.light,
   
-//         ))}
-//       </div>
-  
-//     </div>
-//   );
-// }
-  
-export default App;
-
+  },
+  input: {
+    flex: 1,
+    marginBottom: 1,
+  }
+});

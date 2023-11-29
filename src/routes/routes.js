@@ -32,7 +32,7 @@ export default function StackRouter() {
         headerShown: false
       }}/>
       <Stack.Screen name='Receitas' component={Receitas}/>
-      <Stack.Screen name='Detalhes' component={Details}/>
+      {/* <Stack.Screen name='Detalhes' component={Details}/> */}
     </Stack.Navigator>
   );
 }
