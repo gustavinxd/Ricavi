@@ -3,8 +3,9 @@ import { View, Text, ScrollView, Image } from 'react-native';
 import { categoryData } from '../../constants/index';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import colors from '../../colors';
 
-export default function Categorias({ activeCategory, handleChangeCategory }) {
+export default function Categorias({ categories, activeCategory, handleChangeCategory }) {
   return (
     <View>
       <ScrollView
@@ -22,9 +23,10 @@ export default function Categorias({ activeCategory, handleChangeCategory }) {
           return (
             <TouchableOpacity
               key={index}
-              style={{ flex: 1, marginVertical: 4,}}
+              style={{ flex: 1, marginVertical: 4, }}
             >
-              <View style={{ borderRadius: 200, } + activeButtonClass}>
+            {/* Estilização do style não pega */}
+              <View style={{ borderColor: colors.primary,} + activeButtonClass}>
                 <Image
                   source={{
                     uri: category.strCategoryImg,
@@ -32,9 +34,10 @@ export default function Categorias({ activeCategory, handleChangeCategory }) {
                   style={{
                     width: hp(10),
                     height: hp(10),
-                    borderRadius: 100
+                    borderRadius: 200,
                   }}
                 />
+                <Text style={{color: colors.primary, textAlign: 'center', fontSize: (hp(2.5))}}>{category.strCategory}</Text>
               </View>
             </TouchableOpacity>
           );

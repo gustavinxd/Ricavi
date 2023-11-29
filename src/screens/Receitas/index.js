@@ -6,15 +6,45 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../../colors';
 import { TextInput } from 'react-native-gesture-handler';
 import Categorias from '../../components/Categorias';
+import axios from 'axios';
 
 export default function Receitas() {
+  const [activeCategory, setActiveCategory] = useState("Beef");
+  const [categories, setCategories] = useState([]);
+  const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    getCategories();
+    getRecipes();
+  }, []);
+
+  const handleChangeCategory = (category) => {
+    getRecipes(category);
+    setActiveCategory(category);
+    setMeals([]);
+  };
+
+  const getCategories = async () => {
+    try {
+      const response = await axios.get(
+        "www.themealdb.com/api/json/v1/1/categories.php"
+      );
+      if (response && response.data) {
+        setCategories(response.data.categories);
+      }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
