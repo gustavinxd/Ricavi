@@ -5,31 +5,32 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../../colors';
 
-export default function Categorias({ categories, activeCategory, handleChangeCategory }) {
+export default function Categories({ categories, activeCategory, handleChangeCategory }) {
   return (
     <View>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator
+        showsHorizontalScrollIndicator={false}
         style={{ marginVertical: 5 }}
         contentContainerStyle={{
           paddingHorizontal: 10
         }}
       >
-        {categoryData.map((category, index) => {
+        {categories.map((category, index) => {
           let isActive = category.strCategory == activeCategory;
           let activeButtonClass = isActive ? 'red' : 'gray';
 
           return (
             <TouchableOpacity
               key={index}
+              onPress={() => handleChangeCategory(category.strCategory)}
               style={{ flex: 1, marginVertical: 4, }}
             >
             {/* Estilização do style não pega */}
               <View style={{ borderColor: colors.primary,} + activeButtonClass}>
                 <Image
                   source={{
-                    uri: category.strCategoryImg,
+                    uri: category.strCategoryThumb,
                   }}
                   style={{
                     width: hp(10),
@@ -37,7 +38,10 @@ export default function Categorias({ categories, activeCategory, handleChangeCat
                     borderRadius: 200,
                   }}
                 />
-                <Text style={{color: colors.primary, textAlign: 'center', fontSize: (hp(2.5))}}>{category.strCategory}</Text>
+                <Text 
+                    style={{color: colors.primary, textAlign: 'center', fontSize: (hp(2.5))}}>
+                        {category.strCategory}
+                </Text>
               </View>
             </TouchableOpacity>
           );

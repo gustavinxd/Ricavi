@@ -12,11 +12,11 @@ import { StatusBar } from 'expo-status-bar';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../../colors';
 import { TextInput } from 'react-native-gesture-handler';
-import Categorias from '../../components/Categorias';
+import Categories from '../../components/Categories';
 import axios from 'axios';
 
 export default function Receitas() {
-  const [activeCategory, setActiveCategory] = useState("Beef");
+  const [activeCategory, setActiveCategory] = useState('Beef');
   const [categories, setCategories] = useState([]);
   const [meals, setMeals] = useState([]);
 
@@ -34,16 +34,26 @@ export default function Receitas() {
   const getCategories = async () => {
     try {
       const response = await axios.get(
-        "www.themealdb.com/api/json/v1/1/categories.php"
+        "https://www.themealdb.com/api/json/v1/1/categories.php"
       );
       if (response && response.data) {
         setCategories(response.data.categories);
-      }
-      } catch (error) {
-        console.log(error);
-      }
+        console.log(response.data.categories);
+      };
+    } catch (error) {
+      console.log(error.message);
     }
-  }
+  };
+
+  const getRecipes = async (category = "Beef") => {
+    try {
+      const response = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?i=${category}`
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -68,20 +78,28 @@ export default function Receitas() {
           </View>
           {/* Search Bar */}
           <View style={styles.viewInput}>
-            <View style = {styles.viewSubInput}>
-              <AntDesign name="search1" size={hp(3)}
-              style={{ color:"gray"}}
+            <View style={styles.viewSubInput}>
+              <AntDesign
+                name="search1"
+                size={hp(3)}
+                style={{ color: 'gray' }}
               />
             </View>
             <TextInput
-              placeholder='Busque sua comida preferida'
+              placeholder="Busque sua comida preferida"
               style={styles.input}
             />
           </View>
 
           {/* Categorias */}
-          <View>
-            <Categorias />
+          <View >
+            {categories.lenght > 0 && ( 
+                <Categories
+                  categories={categories}
+                  activeCategory={activeCategory}
+                  handleChangeCategory={handleChangeCategory}
+                  />
+            )}
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -93,7 +111,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 5,
+    padding: 5
   },
   scroll: {
     paddingTop: 14,
@@ -105,7 +123,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
     padding: 5,
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 10
   },
   title: {
     fontSize: hp(3.5),
@@ -129,14 +147,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 10,
     flexDirection: 'row',
-    padding: 8,
+    padding: 8
   },
   viewSubInput: {
-    backgroundColor: colors.light,
-  
+    backgroundColor: colors.light
   },
   input: {
     flex: 1,
-    marginBottom: 1,
+    marginBottom: 1
   }
 });

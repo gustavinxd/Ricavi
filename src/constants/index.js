@@ -2,22 +2,22 @@ export const categoryData = [
   {
     idCategory: '1',
     strCategory: 'Beef',
-    strDescription:
+    strCategoryDescription:
       'Beef is the culinary name for meat from cattle, particularly skeletal muscle.',
-    strCategoryImg: 'https://www.themealdb.com/images/ingredients/Beef.png'
+    strCategoryThumb: 'https://www.themealdb.com/images/ingredients/Beef.png'
   },
   {
     idCategory: '2',
     strCategory: 'Chicken',
-    strDescription:
+    strCategoryDescription:
       'The chicken is a type of domesticated fowl, a subspecies of the red junglefowl (Gallus gallus).',
-    strCategoryImg: 'https://www.themealdb.com/images/ingredients/Chicken.png'
+    strCategoryThumb: 'https://www.themealdb.com/images/ingredients/Chicken.png'
   },
   {
-    idCategory: '3',
+    idCategory: '7',
     strCategory: 'Pork',
-    strDescription:
-      'O porco, a carne mais consumida globalmente, é apreciado desde 5000 a.C. tanto fresco quanto preservado. Amplamente consumido no Sudeste Asiático e partes não muçulmanas da Ásia, é proibido por leis dietéticas judaicas, muçulmanas e rastafáris.',
-    strCategoryImg: 'https://www.themealdb.com/images/ingredients/Pork.png'
-  }
+    strCategoryDescription:
+    "Pork is the culinary name for meat from a domestic pig (Sus scrofa domesticus). It is the most commonly consumed meat worldwide,[1] with evidence of pig husbandry dating back to 5000 BC. Pork is eaten both freshly cooked and preserved. Curing extends the shelf life of the pork products. Ham, smoked pork, gammon, bacon and sausage are examples of preserved pork. Charcuterie is the branch of cooking devoted to prepared meat products, many from pork.",
+    strCategoryThumb: 'https://www.themealdb.com/images/ingredients/Pork.png'
+  },
 ];
