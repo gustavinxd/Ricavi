@@ -50,6 +50,9 @@ export default function Receitas() {
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/filter.php?i=${category}`
       );
+      if (response && response.data) {
+        setMeals(response.data.meals);
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -92,15 +95,19 @@ export default function Receitas() {
           </View>
 
           {/* Categorias */}
-          <View >
-            {categories.lenght > 0 && ( 
-                <Categories
-                  categories={categories}
-                  activeCategory={activeCategory}
-                  handleChangeCategory={handleChangeCategory}
-                  />
+          <View>
+            {categories.length > 0 && (
+              <Categories
+                categories={categories}
+                activeCategory={activeCategory}
+                handleChangeCategory={handleChangeCategory}
+              />
             )}
           </View>
+          {/* <View>
+            <Recipes meals={meals} categories={categories} />
+          </View> */}
+
         </ScrollView>
       </SafeAreaView>
     </View>

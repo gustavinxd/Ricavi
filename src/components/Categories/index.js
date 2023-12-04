@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../../colors';
 
-export default function Categories({ categories, activeCategory, handleChangeCategory }) {
+export default function Categories({ activeCategory, handleChangeCategory }) {
   return (
     <View>
       <ScrollView
@@ -16,9 +16,9 @@ export default function Categories({ categories, activeCategory, handleChangeCat
           paddingHorizontal: 10
         }}
       >
-        {categories.map((category, index) => {
+        {categoryData.map((category, index) => {
           let isActive = category.strCategory == activeCategory;
-          let activeButtonClass = isActive ? 'red' : 'gray';
+          let activeButtonClass = isActive ? '#000' : 'gray';
 
           return (
             <TouchableOpacity
