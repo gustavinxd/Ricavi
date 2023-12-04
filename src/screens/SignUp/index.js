@@ -17,6 +17,9 @@ import InputController from './../../components/InputController/index';
 import HelperText from './../../components/HelperText/index';
 import LinkPage from './../../components/LinkPage/index';
 import { useState } from 'react';
+import { auth, createUserWithEmailAndPassword } from '../../services/firebase'; // Ajuste o caminho conforme necessário
+
+
 
 const schema = z
   .object({
@@ -69,8 +72,17 @@ export default function SignUpPage({ navigation }) {
   };
 
   const submitForm = async (data) => {
-    console.log(data);
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+      console.log('Usuário cadastrado:', userCredential.user);
+      // Redirecionar para outra tela após o cadastro, se necessário
+      navigation.navigate('SignIn');
+    } catch (error) {
+      console.error('Erro ao cadastrar usuário:', error.message);
+      // Exibir mensagem de erro
+    }
   };
+  
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: themeColor }]}>

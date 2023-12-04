@@ -10,6 +10,7 @@ import colors from '../../colors';
 import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { auth, signInWithEmailAndPassword } from '../../services/firebase';
 import { useThemeContext } from '../../contexts/theme';
 import SubmitButton from './../../components/Buttons/SubmitButton';
 import ButtonIcon from './../../components/Buttons/ButtonIcon/index';
@@ -17,6 +18,8 @@ import InputController from './../../components/InputController/index';
 import HelperText from './../../components/HelperText/index';
 import LinkPage from './../../components/LinkPage/index';
 import { useState } from 'react';
+
+
 
 const schema = z.object({
   email: z
@@ -54,7 +57,13 @@ export default function SignInPage({ navigation }) {
   };
   
   const submitForm = async (data) => {
-    console.log(data);
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      navigation.navigate('Receitas');
+    } catch (error) {
+      console.error('Erro de login:', error.message);
+      // Exibir mensagem de erro
+    }
   };
 
   return (
