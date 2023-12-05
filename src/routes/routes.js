@@ -5,6 +5,7 @@ import Receitas from '../screens/Receitas';
 import Details from '../screens/DetailRecipe';
 import CustomHeader from '../components/CustomHeader';
 import colors from '../colors';
+import DetailRecipe from '../screens/DetailRecipe';
 
 const Stack = createStackNavigator();
 
@@ -32,7 +33,7 @@ export default function StackRouter() {
         headerShown: false
       }}/>
       <Stack.Screen name='Receitas' component={Receitas}/>
-      {/* <Stack.Screen name='Detalhes' component={Details}/> */}
+      <Stack.Screen name='DetailRecipe' component={DetailRecipe}/>
     </Stack.Navigator>
   );
 }

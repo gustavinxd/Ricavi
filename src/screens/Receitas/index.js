@@ -14,6 +14,8 @@ import colors from '../../colors';
 import { TextInput } from 'react-native-gesture-handler';
 import Categories from '../../components/Categories';
 import axios from 'axios';
+import Recipes from '../../components/Recipe/Recipes';
+
 
 export default function Receitas() {
   const [activeCategory, setActiveCategory] = useState('Beef');
@@ -104,9 +106,9 @@ export default function Receitas() {
               />
             )}
           </View>
-          {/* <View>
+          <View>
             <Recipes meals={meals} categories={categories} />
-          </View> */}
+          </View>
 
         </ScrollView>
       </SafeAreaView>
