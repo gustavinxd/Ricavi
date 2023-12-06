@@ -7,20 +7,15 @@
 ## Tabela de Conteúdo
 
 - [O que é o Projeto?](#o-que-é-o-projeto?)
-- [Objetivo](#objetivo)
 - [Tecnologias](#tecnologias)
-- [Requisitos Funcionais](#requisitos-funcionais)
 - [Como clonar](#como-clonar)
 - [Como inicializar o projeto](#como-inicializar-o-projeto)
 - [Inicializar](#inicializar)
 - [Equipe de desenvolvedores](#equipe-de-desenvolvedores)
-- [Precificação](#precificação)
 
 ## O que é o Projeto?
 
 Ricavi é um app de onde possui listas de receitas culinárias com autenticação obrigatória. Esta aplicação foi desenvolvida pela equipe PirateDevs.
-
-## Objetivo
 
 
 ## Tecnologias
@@ -34,28 +29,6 @@ Ricavi é um app de onde possui listas de receitas culinárias com autenticaçã
   <img src='https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white'/>  
   <img src='https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E'/>   
 </div>
-
-## Requisitos Funcionais
-
-1. Calcular e exibir o consumo individual e total de carnes e bebidas;
-2. Calcular e exibir o valor do rateio por pessoa (R$) com o churrasco;
-3. Calcular e exibir o valor total gasto (R$) com o churrasco estratificado por:
-3.1. Carnes;
-3.2. Bebidas;
-3.3. Material de consumo e;
-3.4. Locação do local para o evento.
-4. Exibir em um mapa a localização do churrasco;
-5. Oferecer no mínimo três opções de carnes. Ex: Bovina, suína e frango;
-6. Oferecer no mínimo três tipos de carne.
-Ex: Bovina: Contra filé, maminha e cupim;
-Suína: Picanha, linguiça e paleta;
-Frango: Coxa, coração e asa.
-7. Oferecer no mínimo três opções de bebidas. Ex: Água, Refrigerante e Cerveja.
-8. Exibir no mínimo uma receita de cada carne oferecida no churrasco. Tomar como referência
-as carnes oferecidas no requisito funcional 6;
-9. Indicar um local para a compra das carnes. Ex: Açougue ou supermercado;
-10. Exibir informações de contato do responsável pelo evento;
-
 
 ## Como Clonar
 
@@ -125,23 +98,6 @@ Ao executar o comando, o terminal retornará um QR Code para escanear em seu dis
 - Edgard Domingues (github: vilaopvp1)
 - Ana Alice (github: AnaByo)
 
-## Precificação
-
-Tempo de desenvolvimento: 30 horas
-Equipe de 3 desenvolvedores
-Loja da Play Store (publicação)
-Frontend
-Backend
-Banco de dados com SQLite
-Protótipo do aplicativo criado pela equipe
-Primeiro, é necessário estimar o custo por hora dos desenvolvedores. Isso pode variar amplamente com base na localização e experiência da equipe. Para esta estimativa, usaremos um valor médio de R$ 100,00 por hora por desenvolvedor.
-
-Cálculo do custo de desenvolvimento:
-Custo por hora por desenvolvedor: R$ 100,00
-Número de desenvolvedores: 3
-Tempo de desenvolvimento: 30 horas
-
-Custo de desenvolvimento = R$ 100,00/hora/desenvolvedor * 3 desenvolvedores * 30 horas = R$ 9.000,00
 
 É importante considerar outros custos associados ao desenvolvimento de um aplicativo, como design gráfico, testes, publicação na Play Store, protótipo e possíveis revisões e melhorias futuras. Esses custos podem variar, mas para fins de estimativa, vamos adicionar mais R$ 3.000,00.
 
