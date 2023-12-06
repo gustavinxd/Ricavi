@@ -39,10 +39,10 @@ export default function Receitas() {
       );
       if (response && response.data) {
         setCategories(response.data.categories);
-        console.log(response.data.categories);
+        // console.log(response.data.categories);
       };
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 
@@ -55,7 +55,7 @@ export default function Receitas() {
         setMeals(response.data.meals);
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 

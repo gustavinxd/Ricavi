@@ -57,10 +57,14 @@ export default function SignInPage({ navigation }) {
   const submitForm = async (data) => {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
+
       navigation.navigate('Receitas');
     } catch (error) {
-      console.error('Erro de login:', error.message);
+      // console.error('Erro de login:', error.message);
       // Exibir mensagem de erro
+      setError('loginError',{
+        message: 'Falha ao realizar login. Tente novamente.'
+      })
     }
   };
 
@@ -128,6 +132,12 @@ export default function SignInPage({ navigation }) {
               {errors.password && (
                 <HelperText helperText={errors.password?.message} />
               )}
+
+              {/* Mensagem de erro caso o login falhe */}
+              {errors.loginError && (
+                <HelperText helperText={errors.loginError?.message} />
+              )}
+              
             </View>
           </View>
 

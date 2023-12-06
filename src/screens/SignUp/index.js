@@ -75,12 +75,14 @@ export default function SignUpPage({ navigation }) {
       // Redirecionar para outra tela após o cadastro, se necessário
       navigation.navigate('SignIn');
     } catch (error) {
-      console.error('Erro ao cadastrar usuário:', error.message);
+      // console.error('Erro ao cadastrar usuário:', error.message);
       // Exibir mensagem de erro
+      setError('signUpError',{
+        message: 'Falha ao realizar cadastro. Tente novamente'
+      })
     }
   };
   
-
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: themeColor }]}>
       <ScrollView style={{ width: '100%', height: '100%' }}>
@@ -168,6 +170,10 @@ export default function SignUpPage({ navigation }) {
               {/* Mensagem de erro caso o campo não esteja no formato correta para submit */}
               {errors.confirmPassword && (
                 <HelperText helperText={errors.confirmPassword?.message} />
+              )}
+              {/* Mensagem de erro caso o campo não esteja no formato correta para submit */}
+              {errors.signUpError && (
+                <HelperText helperText={errors.signUpError?.message} />
               )}
             </View>
           </View>
