@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import BackButton from '../Buttons/BackButton/index';
+import ButtonIcon from './../Buttons/ButtonIcon/index';
 
 export default function CustomHeader({
   navigation,
@@ -16,6 +17,7 @@ export default function CustomHeader({
         {removeBackButton ? null : (
           <BackButton navigation={navigation} route={route} />
         )}
+        <ButtonIcon icon='logout' />
       </View>
       {children}
     </View>
