@@ -19,8 +19,6 @@ import HelperText from './../../components/HelperText/index';
 import LinkPage from './../../components/LinkPage/index';
 import { useState } from 'react';
 
-
-
 const schema = z.object({
   email: z
     .string({
