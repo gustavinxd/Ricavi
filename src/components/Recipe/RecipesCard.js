@@ -12,9 +12,10 @@ export default function RecipesCard({ index, navigation, item }) {
         style={{
           width: '100%',
           paddingRight: isEven ? 8 : 0,
+          marginBottom: 8
         }}
         styles={styles.press}
-        onPress={() => navigation.navigate('RecipeDetails', { ...item })}
+        // onPress={() => navigation.navigate('RecipeDetails', { ...item })}
       >
         <Image
           source={{
@@ -47,7 +48,6 @@ export default function RecipesCard({ index, navigation, item }) {
             : item.strMeal}
         </Text>
       </Pressable>
-      <Text>index</Text>
     </View>
   );
 }
