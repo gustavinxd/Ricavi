@@ -156,11 +156,11 @@ export default function SignInPage({ navigation }) {
             />
           </View>
 
-          <View style={styles.authButtons}>
+          {/* <View style={styles.authButtons}>
             <ButtonIcon icon="github" size={30} colorTheme={colors.black} />
             <ButtonIcon icon="google" size={30} colorTheme={colors.black} />
             <ButtonIcon icon="facebook" size={30} colorTheme={colors.black} />
-          </View>
+          </View> */}
         </View>
       </ScrollView>
     </SafeAreaView>

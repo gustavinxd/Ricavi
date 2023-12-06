@@ -18,7 +18,7 @@ export default function CustomHeader({
         {removeBackButton ? null : (
           <BackButton navigation={navigation} route={route} />
         )}
-        <ButtonIcon icon='logout' size={30} colorTheme={colors.light} />
+        {/* <ButtonIcon icon='logout' size={30} colorTheme={colors.light} /> */}
       </View>
       {children}
     </View>
