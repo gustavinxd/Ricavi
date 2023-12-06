@@ -1,7 +1,7 @@
 # Ricavi
 
 <div> 
-  <img align='center' style='width: 300px' src='assets/img/Logo.svg'/>
+  <img align='center' style='width: 300px' src='assets/img/logoRICAVI.png'/>
 </div>
 
 ## Tabela de Conteúdo
