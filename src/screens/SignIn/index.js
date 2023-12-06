@@ -58,7 +58,7 @@ export default function SignInPage({ navigation }) {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
 
-      navigation.navigate('Receitas');
+      navigation.navigate('Home');
     } catch (error) {
       // console.error('Erro de login:', error.message);
       // Exibir mensagem de erro

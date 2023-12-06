@@ -1,6 +1,4 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import SignInPage from '../screens/SignIn';
-import SignUpPage from '../screens/SignUp';
 import ReceitasHome from '../screens/Receitas/Home';
 import ReceitasBovina from '../screens/Receitas/Bovina';
 import ReceitasFrango from '../screens/Receitas/Frango/index';
