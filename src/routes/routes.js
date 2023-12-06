@@ -1,11 +1,12 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import SignInPage from '../screens/SignIn';
 import SignUpPage from '../screens/SignUp';
-import Receitas from '../screens/Receitas';
-import Details from '../screens/DetailRecipe';
+import ReceitasHome from '../screens/Receitas/Home';
+import ReceitasBovina from '../screens/Receitas/Bovina';
+import ReceitasFrango from '../screens/Receitas/Frango/index';
+import ReceitasSuina from '../screens/Receitas/Suína/index';
 import CustomHeader from '../components/CustomHeader';
 import colors from '../colors';
-import DetailRecipe from '../screens/DetailRecipe';
 
 const Stack = createStackNavigator();
 
@@ -32,8 +33,17 @@ export default function StackRouter() {
       <Stack.Screen name='SignUp' component={SignUpPage} options={{
         headerShown: false
       }}/>
-      <Stack.Screen name='Receitas' component={Receitas}/>
-      <Stack.Screen name='DetailRecipe' component={DetailRecipe}/>
+      <Stack.Screen
+        name="Receitas"
+        component={ReceitasHome}
+        options={{
+
+        }}
+      />
+
+      <Stack.Screen name="Bovina" component={ReceitasBovina} options={{}} />
+      <Stack.Screen name="Frango" component={ReceitasFrango} options={{}} />
+      <Stack.Screen name="Suína" component={ReceitasSuina} options={{}} />
     </Stack.Navigator>
   );
 }
