@@ -4,14 +4,13 @@ import {
   ScrollView,
   SafeAreaView,
   StyleSheet,
-  Image
+  TextInput
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../../colors';
-import { TextInput } from 'react-native-gesture-handler';
 import Categories from '../../components/Categories';
 import axios from 'axios';
 import Recipes from '../../components/Recipe/Recipes';

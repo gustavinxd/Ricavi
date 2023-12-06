@@ -2,7 +2,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignInPage from '../screens/SignIn';
 import SignUpPage from '../screens/SignUp';
 import Receitas from '../screens/Receitas';
-import Details from '../screens/DetailRecipe';
 import CustomHeader from '../components/CustomHeader';
 import colors from '../colors';
 import DetailRecipe from '../screens/DetailRecipe';

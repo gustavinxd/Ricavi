@@ -12,14 +12,11 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useThemeContext } from '../../contexts/theme';
 import SubmitButton from './../../components/Buttons/SubmitButton';
-import ButtonIcon from './../../components/Buttons/ButtonIcon/index';
 import InputController from './../../components/InputController/index';
 import HelperText from './../../components/HelperText/index';
 import LinkPage from './../../components/LinkPage/index';
 import { useState } from 'react';
 import { auth, createUserWithEmailAndPassword } from '../../services/firebase'; // Ajuste o caminho conforme necessário
-
-
 
 const schema = z
   .object({
