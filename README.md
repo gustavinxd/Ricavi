@@ -11,6 +11,7 @@
 - [Como clonar](#como-clonar)
 - [Como inicializar o projeto](#como-inicializar-o-projeto)
 - [Inicializar](#inicializar)
+- [Precificação](#precificação)
 - [Equipe de desenvolvedores](#equipe-de-desenvolvedores)
 
 ## O que é o Projeto?
@@ -92,13 +93,35 @@ npx expo start --tunnel
 ```
 Ao executar o comando, o terminal retornará um QR Code para escanear em seu dispositivo móvel com o app Expo Go e com outras opções a serem escolhidas.
 
+## Precificação
+
+Após uma análise detalhada do projeto e considerando os padrões do mercado, chegamos à seguinte estrutura de precificação para o nosso aplicativo de receitas, que inclui funcionalidades como login, cadastro e acesso a uma variedade de receitas.
+
+### Taxa Horária de Desenvolvimento:
+
+Com base no valor médio de mercado, estabelecemos uma taxa horária de R$ 100. Este valor é uma estimativa para desenvolvedores com habilidades intermediárias no Brasil e é consistente com as taxas praticadas no setor.
+
+### Tempo Total de Desenvolvimento:
+O projeto envolveu a colaboração de 3 desenvolvedores, cada um dedicando 16 horas ao desenvolvimento. Portanto, o tempo total de desenvolvimento foi de 48 horas (3 desenvolvedores x 16 horas).
+
+### Custo de Desenvolvimento:
+Multiplicando a taxa horária pelo tempo total, o custo de desenvolvimento é calculado como R$ 4.800 (R$ 100/hora x 48 horas).
+
+### Margem de Lucro:
+Para garantir a sustentabilidade do projeto, adicionamos uma margem de lucro de 20%. Isso totaliza R$ 960 (20% de R$ 4.800).
+
+### Custo Final do Projeto:
+Somando o custo de desenvolvimento e a margem de lucro, o custo final do projeto é de R$ 5.760 (R$ 4.800 + R$ 960).
+
+### Observações Adicionais:
+Vale ressaltar que esta é uma precificação básica. Outras despesas, como licenças de software, hardware, custos de manutenção, marketing e operacionais, não estão incluídas neste cálculo.
+A complexidade do aplicativo, recursos adicionais, design, testes e suporte pós-lançamento podem influenciar o custo final.
+
+Esta precificação foi cuidadosamente calculada para refletir tanto o esforço investido no projeto quanto a realidade do mercado atual para este tipo de desenvolvimento de software.
+
 ## Equipe de Desenvolvedores
 
 - Gustavo Benjamin (github: gustavinxd)
 - Edgard Domingues (github: vilaopvp1)
 - Ana Alice (github: AnaByo)
 
-
-É importante considerar outros custos associados ao desenvolvimento de um aplicativo, como design gráfico, testes, publicação na Play Store, protótipo e possíveis revisões e melhorias futuras. Esses custos podem variar, mas para fins de estimativa, vamos adicionar mais R$ 3.000,00.
-
-Portanto, o custo total estimado para o desenvolvimento do aplicativo de calculadora de churrasco, com as especificações fornecidas, seria aproximadamente R$ 12.000,00.
